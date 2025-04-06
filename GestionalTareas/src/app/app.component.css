@@ -1,0 +1,18 @@
+/* Asegúrate de que el body ocupe el 100% de la altura */
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Contenedor principal que envuelve todo el contenido */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura */
+  }
+  
+  /* Este será el contenido que se adapta en el medio de la página */
+  .content {
+    flex: 1; /* Esto hace que el contenido ocupe el espacio disponible */
+  }
+  

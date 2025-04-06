@@ -1,0 +1,39 @@
+/* Asegúrate de que el header tenga un ancho limitado y centrado */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #000080;
+  margin-bottom: 100px;
+}
+
+nav.navbar {
+    width: 85%; /* 100% - 5% (izquierda y derecha) */
+    margin: 0 auto; /* Centra el navbar */
+  }
+  
+  .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .navbar-nav {
+    font-size: 1.1rem;
+  }
+  
+  .d-flex .btn {
+    font-size: 1.1rem;
+  }
+  
+  .navbar-collapse {
+    font-weight: bold;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el header esté sobre otros elementos */
+    background-color: #000080 !important; /* Forzamos el color azul */
+    
+}
+
+  

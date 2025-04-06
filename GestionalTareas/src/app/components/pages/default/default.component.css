@@ -1,0 +1,84 @@
+/* El body se asegura de que todo el texto use la fuente correcta y el tamaño adecuado */
+body {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem; /* Tamaño base aún más grande */
+    margin: 0; /* Aseguramos que no haya márgenes por defecto */
+    height: auto; /* Aseguramos que ocupe toda la altura de la ventana */
+    background-color: white;
+    
+  }
+  
+  /* Asegura que el contenedor ocupe toda la altura y se utilice Flexbox */
+  .centrar-todo {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 100px; /* Aumentado para más separación */
+  }
+  
+  .plataforma-section {
+    margin-top: 100px; /* Más espacio con la sección anterior */
+    margin-bottom: 100px; /* Más separación con lo que venga después */
+  }
+  
+  
+  section {
+    margin-bottom: 50px; /* Ajusta el valor según el espacio que necesites */
+  }
+  
+  /* Usamos Flexbox para asegurar que los elementos dentro de la fila se centren */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espaciado entre los sections */
+  }
+  
+  
+  /* El estilo para las imágenes asegurará que se ajusten correctamente */
+  .img-fluid {
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto; /* Mantiene la proporción */
+    transform: scale(1.2); /* Aumenta la imagen un 20% visualmente */
+    transition: transform 0.3s ease; /* Para suavidad al cargar */
+  }
+  
+  /* Estilo para los encabezados */
+  h2 {
+    font-size: 3.75rem !important; /* Tamaño de fuente más grande */
+    font-weight: 700 !important;
+    margin-bottom: 20px; /* Para separar un poco del párrafo siguiente */
+  }
+  
+  /* Estilo para los párrafos */
+  p {
+    font-size: 1.5rem !important;
+    margin-bottom: 20px; /* Separación de los párrafos */
+  }
+  
+  /* Estilo para el input del grupo */
+  .input-group input {
+    font-size: 1.5rem !important;
+    padding: 0.75rem 1.5rem !important;
+    max-width: 100%; /* Asegura que el input no sobrepase el ancho */
+  }
+  
+  /* Estilo para el botón */
+  .input-group button {
+    font-size: 1.5rem !important;
+    padding: 0.75rem 1.8rem !important;
+  }
+  
+
+
+.my-5 .h-100 {
+  margin-top: 0; /* Evita solapamientos */
+  margin-bottom: 50px;
+}
+
+
+.plataforma-section {
+  margin-top: -15% ;
+
+}

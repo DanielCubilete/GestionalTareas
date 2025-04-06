@@ -1,0 +1,125 @@
+/* Contenedor que usa flexbox para centrar el formulario */
+.register-container {
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Usa toda la altura de la ventana */
+    overflow: hidden; /* Elimina cualquier barra de desplazamiento de la ventana */
+  }
+  
+  /* Estilo personalizado del formulario */
+  .custom-form {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para el formulario */
+    padding: 25px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    border: 8px solid white;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.2),
+      inset 0 0 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif;
+    box-sizing: border-box;
+    height: auto; /* La altura es automática según el contenido */
+    max-height: 95vh; /* Asegura que el formulario no sea demasiado alto */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido es grande */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los elementos al principio del formulario */
+  }
+  
+  .custom-form:hover {
+    box-shadow: 
+      0 0 30px rgba(79, 163, 247, 0.5), /* Efecto de resplandor similar al focus con azul clarito */
+      0 8px 24px rgba(0, 0, 0, 0.3), /* Mantiene la sombra exterior */
+      inset 0 0 30px rgba(0, 0, 0, 0.1); /* Mantiene la sombra interior */
+    transition: all 0.3s ease;
+  }
+  
+  /* Título del formulario */
+  .custom-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif; /* Fuente clásica */
+    font-size: 72px; /* Letra grande */
+    font-weight: 900; /* Texto más bold */
+    letter-spacing: 6px; /* Aumentamos más la separación */
+    -webkit-text-stroke: 2px white; /* Borde blanco más fino */
+    color: white; /* Color blanco */
+    text-shadow: 
+        0 0 10px rgba(79, 163, 247, 0.5),  
+        0 0 20px rgba(79, 163, 247, 0.4),  
+        0 0 30px rgba(79, 163, 247, 0.3);  /* Sombra azul clarito */
+}
+  
+  /* Campos de entrada y archivo */
+  .custom-input,
+  .custom-file-input {
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 6px solid white;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.2),
+      inset 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+    margin-bottom: 20px;
+  }
+  
+  .custom-input:focus,
+  .custom-file-input:focus {
+    border-color: white;
+    box-shadow: 
+      0 0 15px rgba(79, 163, 247, 0.5), /* Cambiado a azul clarito */
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      inset 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para el grupo de contraseñas */
+  .password-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px; /* Separación de las contraseñas */
+  }
+  
+  /* Estilo para los botones */
+  .custom-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #4fa3f7; /* Azul clarito */
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+  }
+  
+  .custom-btn:hover {
+    background-color: #3791d3; /* Azul más oscuro para hover */
+    transform: translateY(-2px);
+  }
+  
+  /* Enlace de "forgot password" con estilo */
+  .forgot-password {
+    text-align: center;
+    margin-top: 25px;
+  }
+  
+  .forgot-password a {
+    color: #4fa3f7; /* Azul clarito */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .forgot-password a:hover {
+    color: #3791d3; /* Azul más oscuro para hover */
+    text-decoration: underline;
+  }
+  

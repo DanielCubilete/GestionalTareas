@@ -1,0 +1,110 @@
+/* Contenedor que usa flexbox para centrar el formulario */
+.login-container {
+    padding: 5%;
+    height: auto;
+}
+
+/* Contenedor que usa flexbox para centrar el formulario */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ocupa toda la altura disponible */
+}
+
+/* Estilo personalizado del formulario */
+.custom-form {
+    width: 500px;
+    padding: 35px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    border: 8px solid white; /* Borde blanco más grueso */
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.2), /* Sombra exterior para resaltar */
+        inset 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra interior sutil */
+    transition: all 0.4s ease;
+    font-family: 'Georgia', serif; /* Fuente clásica */
+}
+
+.custom-form:hover {
+    box-shadow: 
+      0 0 30px rgba(79, 163, 247, 0.5), /* Efecto de resplandor similar al focus con azul clarito */
+      0 8px 24px rgba(0, 0, 0, 0.3), /* Mantiene la sombra exterior */
+      inset 0 0 30px rgba(0, 0, 0, 0.1); /* Mantiene la sombra interior */
+    transition: all 0.3s ease;
+  }
+
+/* Título del formulario */
+.custom-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif; /* Fuente clásica */
+    font-size: 72px; /* Letra grande */
+    font-weight: 900; /* Texto más bold */
+    letter-spacing: 6px; /* Aumentamos más la separación */
+    -webkit-text-stroke: 2px white; /* Borde blanco más fino */
+    color: white; /* Color blanco */
+    text-shadow: 
+        0 0 10px rgba(79, 163, 247, 0.5),  
+        0 0 20px rgba(79, 163, 247, 0.4),  
+        0 0 30px rgba(79, 163, 247, 0.3);  /* Sombra azul clarito */
+}
+
+/* Input personalizado */
+.custom-input {
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 6px solid white; /* Borde blanco grueso */
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.2), /* Sombra exterior */
+        inset 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra interior */
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Efecto de enfoque en los inputs */
+.custom-input:focus {
+    border-color: white; /* Mantiene el borde blanco */
+    box-shadow: 
+        0 0 15px rgba(79, 163, 247, 0.5), /* Resalta el campo al enfocarlo con azul clarito */
+        0 4px 12px rgba(0, 0, 0, 0.3), /* Mantiene la sombra exterior */
+        inset 0 0 15px rgba(0, 0, 0, 0.1); /* Mantiene la sombra interior */
+}
+
+/* Botón de login personalizado */
+.custom-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #4fa3f7; /* Azul clarito */
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.custom-btn:hover {
+    background-color: #3791d3; /* Azul más oscuro para hover */
+    transform: translateY(-2px);
+}
+
+/* Enlace de "forgot password" con estilo */
+.forgot-password {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.forgot-password a {
+    color: #4fa3f7; /* Azul clarito */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #3791d3; /* Azul más oscuro para hover */
+    text-decoration: underline;
+}
