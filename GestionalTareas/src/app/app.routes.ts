@@ -9,6 +9,8 @@ import { DefaultComponent } from './components/pages/default/default.component';
 import { RouterLink } from '@angular/router';
 import { AdminDashboardComponent } from './components/appweb/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './components/appweb/user-dashboard/user-dashboard.component';
+import path from 'path';
+import { Error404Component } from './components/pages/error404/error404.component';
 // Asegúrate de que estas rutas estén bien definidas
 export const routes = [
   { path: '', component: DefaultComponent },
@@ -19,5 +21,7 @@ export const routes = [
   { path: 'register', component: RegisterComponent },
   {path: 'default', component: DefaultComponent},
   {path: 'admin-dashboard', component: AdminDashboardComponent},
-  {path: 'user-dashboard', component: UserDashboardComponent}
+  {path: 'user-dashboard', component: UserDashboardComponent},
+  //Pagina 404
+  {path: '**', component: Error404Component}
 ];
