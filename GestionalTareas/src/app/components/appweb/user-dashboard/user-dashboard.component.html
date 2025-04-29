@@ -1,1 +1,118 @@
-<p>user-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slide Bar</title>
+  <link rel="stylesheet" href="./user-dashboard.component.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    <button id="toggleBtn" class="toggle-btn">
+      <i class='bx bx-chevron-left'></i>
+    </button>
+    <div class="content">
+      <img src="./img/logo.png" alt="Logo" class="logo" />
+      <nav class="nav">
+        <a href="#"><i class='bx bx-home'></i> <span>Home</span></a>
+        <a href="#"><i class='bx bx-group'></i> <span>Teams</span></a>
+        <a href="#"><i class='bx bx-task'></i> <span>Tasks</span></a>
+        <a href="#"><i class='bx bx-calendar'></i> <span>Calendar</span></a>
+      </nav>
+      <div class="buttons">
+        <button><i class='bx bx-menu'></i></button>
+        <button><i class='bx bx-user'></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-container">
+    <div class="left-block">
+      <div class="task-area">
+        <!-- Contenedor de listas (se pueden mover horizontalmente) -->
+        <div class="task-container" id="taskContainer">
+          <!-- Botón para crear listas -->
+          <button id="createListBtn" class="create-list-btn">
+            Crear una lista
+          </button>
+        </div>
+      </div>
+
+      <!-- Botones grandes (Notepad y Calendario) -->
+      <div class="left-buttons">
+        <button id="notepadBtn">
+          <i class='bx bx-notepad'></i>
+          <span>Notepad</span>
+        </button>
+        <button id="calendarBtn">
+          <i class='bx bx-calendar'></i>
+          <span>Calendario</span>
+        </button>
+        <button id="chatBtn">
+          <i class='bx bx-calendar'></i>
+          <span>Chat general</span>
+        </button>
+      </div>
+      
+    </div>
+
+    <!-- Modal Notas -->
+    <div id="notepadContainer" class="notepad-container" style="display: none;">
+      <div class="notepad-header">
+        <h3>Mis Notas</h3>
+        <button id="closeNotepadBtn">Cerrar</button>
+      </div>
+      <div class="notepad-body">
+        <textarea id="notepadTextArea" placeholder="Escribe tu nota aquí..."></textarea>
+        <button id="saveNoteBtn">Guardar nota</button>
+      </div>
+      <div id="notesList" class="notes-list">
+        <!-- Aquí se agregan las notas -->
+      </div>
+    </div>
+
+    <!-- Modal Editar Tarea -->
+    <div id="editTaskModal" class="edit-task-modal" style="display: none;">
+      <div class="edit-task-content">
+        <h3>Editar Tarea</h3>
+        <label for="editTaskTitle">Título:</label>
+        <input type="text" id="editTaskTitle" placeholder="Nuevo título">
+
+        <label for="editTaskInfo">Información:</label>
+        <textarea id="editTaskInfo" placeholder="Detalles de la tarea"></textarea>
+
+        <label for="editTaskColor">Color:</label>
+        <input type="color" id="editTaskColor">
+
+        <label for="editTaskCategory">Categoría:</label>
+        <select id="editTaskCategory">
+          <option value="Urgente">Urgente</option>
+          <option value="Personal">Personal</option>
+          <option value="Normal">Normal</option>
+        </select>
+
+        <label for="editTaskDueDate">Fecha de vencimiento:</label>
+        <input type="date" id="editTaskDueDate">
+
+        <button id="saveEditedTaskBtn">Guardar cambios</button>
+        <button id="closeEditModalBtn">Cerrar</button>
+      </div>
+    </div>
+
+    <div class="right-block">
+      <div class="top-block">
+        <p>Bloque superior derecho</p>
+      </div>
+      <div class="bottom-block">
+        <p>Bloque inferior derecho</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SortableJS y tus scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+</body>
+</html>

@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { SuscriptionsComponent } from '../../components/pages/suscriptions/suscriptions.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SuscriptionsComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ]
 })
-export class PagesModule { }
+export class PagesModule {}

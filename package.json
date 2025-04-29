@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular/platform-browser": "^19.2.7",
+    "@angular/router": "^19.2.7",
+    "sortablejs": "^1.15.6"
+  },
+  "devDependencies": {
+    "@types/sortablejs": "^1.15.8"
+  }
+}

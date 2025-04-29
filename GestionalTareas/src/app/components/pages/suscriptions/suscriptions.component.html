@@ -1,0 +1,24 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4">Planes de Suscripción</h2>
+
+  <div class="row g-4">
+    <div *ngFor="let sub of subscriptions" class="col-12 col-md-6 col-lg-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-primary fw-bold">{{ sub.name }}</h5>
+          <h6 class="card-subtitle mb-3 text-muted">${{ sub.price.toFixed(2) }}</h6>
+
+          <ul class="list-group list-group-flush flex-grow-1 mb-3">
+            <li *ngFor="let feature of sub.features" class="list-group-item small">
+              <i class="bi bi-check-circle-fill text-success me-2"></i>{{ feature }}
+            </li>
+          </ul>
+
+          <button class="btn btn-outline-primary mt-auto w-100">
+            Seleccionar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

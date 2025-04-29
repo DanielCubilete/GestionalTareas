@@ -1,0 +1,905 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    }
+
+/* ==== Sidebar ==== */
+
+
+.sortable-ghost {
+    opacity: 0.4;
+    background: #ccc;
+    border: 2px dashed #888;
+  }
+  
+
+
+
+/* Sidebar cuando está expandido */
+.sidebar {
+width: 250px;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+background-color: #1f3b57;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+z-index: 100;
+flex-shrink: 0;
+transition: width 0.3s ease, left 0.3s ease; /* Agregado para animar el sidebar */
+}
+
+/* Sidebar cuando está colapsado */
+.sidebar.collapsed {
+width: 80px; /* Este es el ancho cuando el sidebar está colapsado */
+}
+
+/* Estilo de la logo cuando el sidebar está colapsado */
+.sidebar.collapsed .logo {
+width: 50px;
+height: 50px;
+}
+
+/* Ocultar los textos de los enlaces en el sidebar cuando está colapsado */
+.sidebar.collapsed .nav a span {
+display: none;
+}
+
+/* Botones del sidebar, en caso de estar colapsado */
+.sidebar.collapsed .buttons {
+flex-direction: column;
+align-items: center;
+}
+
+.sidebar.collapsed .buttons button {
+padding: 0.5rem;
+justify-content: center;
+}
+
+/* Esconder texto de los botones cuando el sidebar está colapsado */
+.sidebar.collapsed .buttons button span {
+display: none;
+}
+
+/* Estilos del botón de colapsar */
+.toggle-btn {
+position: absolute;
+top: 20px;
+left: 230px; /* Posición inicial fuera del sidebar */
+background-color: #274a6e;
+color: white;
+border: none;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, left 0.3s ease; /* Animar el movimiento */
+}
+
+/* Cuando el sidebar está colapsado, mueve el botón */
+.sidebar.collapsed + .toggle-btn {
+left: 130px; /* Ajusta la posición cuando el sidebar está colapsado */
+}
+
+/* Rotación del icono dentro del botón cuando está colapsado */
+.sidebar.collapsed + .toggle-btn i {
+transform: rotate(180deg);
+}
+
+/* Hover en el botón */
+.toggle-btn:hover {
+transform: scale(1.1);
+}
+
+/* Ícono dentro del botón */
+.toggle-btn i {
+font-size: 20px;
+transition: transform 0.2s ease;
+}
+
+
+
+
+
+/* Estilo del contenido dentro del sidebar */
+.content {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;  /* Aseguramos que todo esté centrado verticalmente */
+height: 100%;
+padding: 0 1rem;
+position: relative;
+}
+
+/* Imagen (logo) */
+.logo {
+width: 172px;  /* Tamaño original de la imagen */
+height: 172px;  /* Tamaño original de la imagen */
+border-radius: 50%;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+position: relative;
+margin-top: 20%;
+transition: transform 0.2s ease-in-out; /* Añadir transición suave */
+}
+
+.logo:hover {
+transform: scale(1.055); /* Aumenta el tamaño en un 0.5% (equivalente a 1px si el tamaño es 172px) */
+}
+
+
+
+/* Nav (menú) centrado verticalmente */
+.nav {
+display: flex;
+flex-direction: column;
+gap: 1.2rem;
+width: 100%;
+align-items: center;  /* Centrado horizontal */
+justify-content: center;  /* Centrado vertical */
+padding: 0 1rem;
+flex-grow: 1;  /* Asegura que ocupe todo el espacio disponible */
+margin-top: -25%;
+}
+
+/* Estilos de los enlaces del nav */
+.nav a {
+display: flex;
+align-items: center;
+gap: 16px;
+color: white;
+text-decoration: none;
+font-size: 1.2rem;
+width: 100%;
+padding: 1rem;
+border-radius: 10px;
+transition: background 0.2s;
+font-weight: bold;
+}
+
+.nav a:hover {
+background-color: rgba(255, 255, 255, 0.1);
+color: #1abc9c;
+}
+
+/* Botones inferiores */
+.buttons {
+display: flex;
+gap: 0.75rem;
+width: 100%;
+justify-content: center;
+margin-bottom: 30%;
+
+}
+
+.buttons button {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0.75rem;
+background-color: #1abc9c;
+border: none;
+color: white;
+border-radius: 10px;
+cursor: pointer;
+font-size: 1.5rem;
+width: 48px;
+height: 48px;
+transition: background-color 0.2s, transform 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+background-color: #16a085;
+transform: scale(1.1);
+}
+
+/* ==== Main container ==== */
+    .main-container {
+    display: flex;
+    width: calc(100vw - 250px);
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#162b3f;
+    margin-left: 250px;
+    flex-grow: 1;
+    }
+
+/* ==== Left block (70% width, 95% height) ==== */
+    .left-block {
+    width: 70%;
+    height: 95%;
+    background-color: #1f3b57;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    margin: 10px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    }
+
+/* Botones grandes (Notepad y Calendario) */
+.left-buttons {
+display: flex;
+gap: 20px;
+justify-content: flex-end;
+padding: 20px;
+}
+
+.left-buttons button {
+width: 150px;
+height: 150px;
+border: none;
+background-color: #274a6e;
+color: white;
+border-radius: 20px;
+cursor: pointer;
+font-size: 18px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 10px;
+transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.left-buttons button:hover {
+background-color: #3a5f8a;
+transform: translateY(-4px);
+}
+
+.left-buttons i {
+font-size: 48px;
+}
+
+/* ==== Right block (30% width, 95% height) ==== */
+.right-block {
+width: 30%;
+height: 95%;
+display: flex;
+flex-direction: column;
+gap: 20px;
+padding: 10px;
+align-items: center;
+justify-content: center;
+}
+
+/* ==== Top block ==== */
+.top-block {
+width: 95%;
+height: 40%;
+background-color: #274a6e;
+padding: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 12px;
+box-sizing: border-box;
+color: white;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==== Bottom block ==== */
+    .bottom-block {
+width: 95%;
+height: 60%;
+background-color: #3a5f8a;
+padding: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==== Task area ==== */
+.task-area {
+height: 85%;
+padding: 20px;
+overflow-x: auto;
+overflow-y: hidden;
+background-color: #1f3b57;
+border-radius: 12px;
+
+}
+
+/* Contenedor de listas y botón */
+.task-container {
+display: flex;
+gap: 10px;
+height: 100%;
+align-items: flex-start;
+overflow-y: auto;
+padding-right: 15px;
+}
+
+.task-container::-webkit-scrollbar {
+display: none; 
+
+}
+
+.create-list-btn {
+width: 13%;
+height: 40px;
+background-color: #3a5f8a;
+border: none;
+color: white;
+font-weight: bold;
+border-radius: 12px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+
+.create-list-btn:hover {
+background-color: #4b75a5;
+transform: translatez(10px) scale(1.03);
+box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-list-btn:active {
+transform: scale(0.98);
+}
+
+/* Suavizar el degradado en las tareas */
+    .task-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    max-height: calc(100% - 60px);
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-bottom: 5px;
+
+    /* Ajuste del degradado para que se vea más claramente */
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 50%, black 70%);
+    mask-image: linear-gradient(to top, transparent 50%, black 70%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    transition: -webkit-mask-image 0.3s ease, mask-image 0.3s ease;
+    }
+
+/* Ajuste de las sombras en las tareas */
+.task-item {
+background-color: #274a6e; /* Igual que .task-list */
+border-radius: 12px;
+min-height: 50px;
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: white;
+width: 100%;
+font-size: 14px;
+/* Sombra más suave, menos agresiva */
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); 
+cursor: pointer;
+}
+
+.task-list {
+    position: relative;
+    width: 28.5%;
+    height: auto; /* Se ajusta según las tareas */
+    max-height: 100%; /* El tamaño máximo se controla por JavaScript */
+    background-color: #274a6e;
+    border-radius: 12px;
+    padding: 10px;
+    color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px; /* Aumenta el espacio en la parte inferior */
+  }
+
+
+
+.task-items::-webkit-scrollbar {
+display: none; 
+
+}
+
+
+
+
+.task-item:hover {
+transform: translateY(-2px);
+background-color: #2e5981; /* ligero cambio en hover */
+}
+
+
+.task-text {
+flex-grow: 1;
+outline: none;
+}
+
+/* Botón eliminar tarea */
+.delete-task-btn {
+background: transparent;
+border: none;
+color: #fff;
+font-size: 18px;
+margin-left: 10px;
+cursor: pointer;
+transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-task-btn:hover {
+color: #000000;
+transform: scale(1.2);
+}
+
+.add-task-btn {
+background-color: #4b75a5;
+border: none;
+color: white;
+padding: 8px 12px;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.2s ease, transform 0.2s ease;
+position: absolute;
+bottom: 10px; /* Mantiene el margen con la parte inferior */
+left: 50%;
+transform: translateX(-50%); /* Centra el botón horizontalmente */
+width: 50%;
+box-sizing: border-box;
+}
+
+
+/* Encabezado de cada lista */
+.list-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.list-header h3 {
+font-size: 18px;
+margin: 0;
+flex-grow: 1;
+outline: none;
+}
+
+/* Botón para eliminar la lista */
+.delete-list-btn {
+background: transparent;
+border: none;
+color: #fff;
+font-size: 20px;
+cursor: pointer;
+transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-list-btn:hover {
+color: #000000;
+transform: scale(1.2);
+}
+
+
+
+@media (max-width: 1024px) {
+.main-container {
+    flex-direction: column;
+    width: 100vw;
+    margin-left: 0;
+}
+
+.sidebar {
+    position: absolute;
+    height: 100%;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.toggle-btn {
+    left: 20px;
+    z-index: 1000;
+}
+
+.main-container {
+    margin-left: 0;
+}
+
+.left-block, .right-block {
+    width: 95%;
+    height: auto;
+    margin: 10px auto;
+}
+
+.left-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.task-container {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.task-list {
+    width: 90%;
+}
+}
+
+.too-small-message {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: #1f3b57;
+color: white;
+font-size: 1.5rem;
+font-weight: bold;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 2rem;
+z-index: 9999;
+}
+
+
+
+
+
+
+
+
+/* Estilo para el modal de edición de tarea */
+.edit-task-modal {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 400px;
+background-color: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+z-index: 1001;
+display: none; /* Oculto por defecto */
+}
+
+.edit-task-modal input, .edit-task-modal textarea {
+width: 100%;
+padding: 10px;
+margin: 5px 0;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.edit-task-modal button {
+padding: 10px;
+margin-top: 10px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.edit-task-modal button:hover {
+background-color: #4CAF50;
+color: white;
+}
+
+/* Estilo para el fondo del modal */
+.edit-task-modal .edit-task-content {
+background-color: #1e2a38;
+padding: 20px;
+}
+
+
+
+
+/* Estilo para el contenedor flotante del Notepad */
+.notepad-container {
+position: fixed;
+top: 100px;
+left: 100px;
+width: 400px;
+height: 500px;
+background-color: #1e2a38;
+color: #f0f4f8;
+border-radius: 12px;
+padding: 16px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+overflow: hidden;
+z-index: 1000;
+display: none;
+}
+
+/* Estilo para la cabecera del Notepad */
+.notepad-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.notepad-header h3 {
+margin: 0;
+font-size: 20px;
+}
+
+#closeNotepadBtn {
+background: transparent;
+color: #f0f4f8;
+border: none;
+font-size: 16px;
+cursor: pointer;
+}
+
+/* AREA DE TEXTO */
+#notepadTextArea {
+width: 100%;
+height: 60px;
+border-radius: 8px;
+padding: 10px;
+border: none;
+resize: none;
+background-color: #2d3a4b;
+color: #f0f4f8;
+margin-bottom: 10px;
+}
+
+#saveNoteBtn {
+width: 100%;
+padding: 10px;
+background-color: #4a80b4;
+border: none;
+color: white;
+border-radius: 8px;
+cursor: pointer;
+margin-top: 10px;
+}
+
+#saveNoteBtn:hover {
+background-color: #5b93c8;
+}
+
+/* Estilo para el texto de la zona de notas */
+.notepad-body textarea {
+width: 100%;
+height: 120px;
+padding: 12px;
+margin-top: 10px;
+font-size: 14px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+/* Estilo para la lista de notas guardadas */
+.notes-list {
+margin-top: 12px;
+height: 280px;
+overflow-y: auto;
+padding-right: 8px;
+scrollbar-width: none;  /* Firefox */
+-ms-overflow-style: none;  /* IE/Edge */
+}
+
+.notes-list::-webkit-scrollbar {
+width: 0;
+background: transparent;
+}
+
+.note-item {
+background-color: #223042;
+padding: 12px;
+border-radius: 8px;
+margin-bottom: 10px;
+color: #fff;
+display: flex;
+flex-direction: column;
+position: relative;
+transition: background 0.3s;
+}
+
+/* Pequeño tag de color a la izquierda */
+.note-color-tag {
+width: 6px;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0;
+border-radius: 8px 0 0 8px;
+}
+
+.note-content {
+margin-left: 10px;
+}
+
+/* Título de la nota */
+.note-title {
+font-size: 22px; /* Título más grande */
+font-weight: bold;
+margin-bottom: 6px;
+}
+
+.note-info {
+font-size: 12px; /* Información más pequeña */
+color: #777;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+/* Parte inferior: eliminar + fecha */
+.note-footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 8px;
+}
+
+.note-date {
+font-size: 12px;
+color: #a0aec0;
+}
+
+/* Estilo para el botón de eliminar */
+.close-btn {
+background-color: #ff4d4d;
+color: white;
+border: none;
+padding: 5px;
+cursor: pointer;
+border-radius: 4px;
+margin-left: 8px;
+}
+
+.close-btn:hover {
+background-color: #ff1a1a;
+}
+
+/* Checkbox de tarea realizada */
+.note-check {
+position: absolute;
+top: 10px;
+right: 10px;
+transform: scale(1.2);
+}
+
+.note-check input {
+transform: scale(1.5);
+}
+
+/* Estilo para el checkbox completado */
+input[type="checkbox"].task-done {
+background-color: transparent;
+border: 2px solid #bbb;
+width: 20px;
+height: 20px;
+cursor: pointer;
+}
+
+input[type="checkbox"].task-done.completed {
+background-color: #4CAF50; /* Verde cuando está completado */
+}
+
+/* Título dentro de la nota */
+.note-title {
+flex-grow: 1;
+color: #f0f4f8;
+}
+
+/* MODAL DE EDICIÓN */
+.edit-task-modal {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 460px;
+background-color: #223042 !important; /* ¡Fondo reforzado! */
+color: #f0f4f8;
+border-radius: 14px;
+padding: 20px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+z-index: 2000;
+display: none;
+}
+
+/* Fondo interior del contenido */
+.edit-task-content {
+background-color: #223042;
+}
+
+.edit-task-content h3 {
+margin-top: 0;
+}
+
+.edit-task-content label {
+font-size: 14px;
+margin-top: 10px;
+display: block;
+}
+
+.edit-task-content input[type="text"],
+.edit-task-content textarea {
+width: 100%;
+padding: 10px;
+border-radius: 8px;
+border: none;
+background-color: #2d3a4b !important;
+color: #f0f4f8;
+margin-top: 5px;
+}
+
+.edit-task-content textarea {
+resize: vertical;
+height: 100px;
+}
+
+/* COLOR SWATCHES */
+.color-swatch-container {
+display: flex;
+gap: 10px;
+margin-top: 10px;
+background-color: transparent;
+}
+
+.color-swatch {
+width: 24px;
+height: 24px;
+border-radius: 6px;
+cursor: pointer;
+border: 2px solid transparent;
+transition: transform 0.2s;
+}
+
+.color-swatch.selected {
+border-color: white;
+transform: scale(1.1);
+}
+
+/* BOTONES DEL MODAL */
+.edit-task-content button {
+padding: 10px 15px;
+margin-top: 15px;
+border-radius: 8px;
+border: none;
+cursor: pointer;
+}
+
+#saveEditedTaskBtn {
+background-color: #4a80b4;
+color: white;
+}
+
+#closeEditModalBtn {
+background-color: transparent;
+color: #aaa;
+margin-left: 10px;
+}
+
+

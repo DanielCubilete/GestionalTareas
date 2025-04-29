@@ -8,20 +8,22 @@
 </head>
 <body>
 
-  <div class="app-container">
+<!-- app.component.html -->
+<div class="app-container">
 
-    <!-- Incluir el Header -->
-    <app-header></app-header>
-  
-    <!-- Contenido principal -->
-    <div class="content">
-      <router-outlet></router-outlet> <!-- Aquí se cargan las rutas -->
-    </div>
-  
-    <!-- Incluir el Footer -->
-    <app-footer></app-footer>
-    
+  <!-- Mostrar Header solo si no estamos en /user-dashboard -->
+  <app-header *ngIf="!isDashboardRoute()"></app-header>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
+
+  <!-- Mostrar Footer solo si no estamos en /user-dashboard -->
+  <app-footer *ngIf="!isDashboardRoute()"></app-footer>
+
+</div>
+
   
 </body>
 </html>
