@@ -1,24 +1,106 @@
-<div class="container my-5">
-  <h2 class="text-center mb-4">Planes de Suscripción</h2>
 
-  <div class="row g-4">
-    <div *ngFor="let sub of subscriptions" class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm border-0">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title text-primary fw-bold">{{ sub.name }}</h5>
-          <h6 class="card-subtitle mb-3 text-muted">${{ sub.price.toFixed(2) }}</h6>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .pricing-title {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .pricing-title h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+    .pricing-title h2 {
+      font-weight: bold;
+      color: #000;
+    }
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .btn-comprar {
+      border-radius: 30px;
+    }
+    .bg-azul {
+      background-color: #4a90e2;
+      color: white;
+    }
+    .bg-verde {
+      background-color: #50e3c2;
+      color: white;
+    }
+    .bg-rosa {
+      background-color: #ec407a;
+      color: white;
+    }
+  </style>
+<body>
 
-          <ul class="list-group list-group-flush flex-grow-1 mb-3">
-            <li *ngFor="let feature of sub.features" class="list-group-item small">
-              <i class="bi bi-check-circle-fill text-success me-2"></i>{{ feature }}
-            </li>
+  <div class="container text-center pricing-title">
+    <h1>Elige tu sueldo</h1>
+    <h2>plan de sitio web mensual</h2>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+
+
+
+      <!-- Plan 1 -->
+      <div class="col-md-4">
+        <div class="card bg-azul text-center text-white p-4">
+          <h5>{{suscriptionObjeto.ModeloPago[0].Nombre}}</h5>
+          <div class="price my-3">$29</div>
+          <ul class="list-unstyled">
+            <li>1 usuario completo</li>
+            <li>1000 vistas previas de correo electrónico</li>
+            <li>5 contactos por cliente</li>
+            <li>5 tazas de café</li>
           </ul>
-
-          <button class="btn btn-outline-primary mt-auto w-100">
-            Seleccionar
-          </button>
+          <button class="btn btn-light btn-comprar mt-3">COMPRAR AHORA</button>
         </div>
       </div>
+
+      <!-- Plan 2 -->
+      <div class="col-md-4">
+        <div class="card bg-verde text-center text-white p-4">
+          <h5>Negocio de 10 páginas</h5>
+          <div class="price my-3">$59</div>
+          <ul class="list-unstyled">
+            <li>10 usuarios completos</li>
+            <li>2000 vistas previas de correo electrónico</li>
+            <li>5 contactos por cliente</li>
+            <li>10 tazas de café</li>
+          </ul>
+          <button class="btn btn-light btn-comprar mt-3">COMPRAR AHORA</button>
+        </div>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="col-md-4">
+        <div class="card bg-rosa text-center text-white p-4">
+          <h5>Inicio de comercio electrónico</h5>
+          <div class="price my-3">$119</div>
+          <ul class="list-unstyled">
+            <li>1 usuario completo</li>
+            <li>3000 vistas previas de correo electrónico</li>
+            <li>5 contactos por cliente</li>
+            <li>15 tazas de café</li>
+          </ul>
+          <button class="btn btn-light btn-comprar mt-3">COMPRAR AHORA</button>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
+
+</body>

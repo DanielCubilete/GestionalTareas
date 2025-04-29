@@ -9,7 +9,6 @@ import { DefaultComponent } from './components/pages/default/default.component';
 import { AdminDashboardComponent } from './components/appweb/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './components/appweb/user-dashboard/user-dashboard.component';
 import { Error404Component } from './components/pages/error404/error404.component';
-import { SuscriptionsComponent } from './components/pages/suscriptions/suscriptions.component';
 
 
 export const routes = [
@@ -24,7 +23,6 @@ export const routes = [
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'dashboard', component: UserDashboardComponent },
 
-  // 👇 aquí el cambio importante
   {
     path: 'suscriptions',
     loadComponent: () =>

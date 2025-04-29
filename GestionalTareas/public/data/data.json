@@ -1,0 +1,35 @@
+{
+    "ModeloPago": [
+        {
+            "Nombre": "BASIC",
+            "Precio": 125,
+            "Descripcion1": "Plan básico con acceso a funciones limitadas.",
+            "Descripcion2": "Ideal para usuarios que buscan una solución económica.",
+            "Descripcion3": "Incluye soporte básico y actualizaciones regulares.",
+            "Descripcion4": "No incluye acceso a funciones pro.",
+            "Duracion": 30,
+            "TipoPago": "Mensual"
+        },
+        {
+            "Nombre": "PRO",
+            "Precio": 250,
+            "Descripcion1": "Plan profesional con acceso a todas las funciones.",
+            "Descripcion2": "Ideal para usuarios que buscan un equilibrio entre precio y funcionalidad.",
+            "Descripcion3": "Incluye soporte prioritario y actualizaciones frecuentes.",
+            "Descripcion4": "No incluye acceso a funciones premium.",
+            "Duracion": 30,
+            "TipoPago": "Mensual"
+        },
+        {
+            "Nombre": "PREMIUM",
+            "Precio": 500,
+            "Descripcion1": "Plan premium con acceso a funciones avanzadas.",
+            "Descripcion2": "Ideal para usuarios que buscan la mejor experiencia.",
+            "Descripcion3": "Incluye soporte prioritario y actualizaciones frecuentes.",
+            "Descripcion4": "Incluye acceso a funciones premium.",
+            "Duracion": 30,
+            "TipoPago": "Mensual"
+        }
+    ]
+
+}
